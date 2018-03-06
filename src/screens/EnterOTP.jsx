@@ -38,15 +38,11 @@ class EnterOTP extends Component {
           value={this.state.oneTimePassword}
           hintText="OTP"
           floatingLabelText="One time password"/>
-          <div>
-            <RaisedButton label="Submit" onClick={this.handleSubmit} primary={true} style={{margin:'20px'}} />
+          <div style={{marginTop:'20px', marginBottom:'20px'}}>
+            <RaisedButton label="Submit" onClick={this.handleSubmit} primary={true}/>
           </div>
           <div>
-          <Link to="/login">Back to Login</Link>
-          </div>
-
-          <div>
-          <Link to="/">Back to Home</Link>
+          <Link to="/">Back to Login</Link>
           </div>
         
       </div>

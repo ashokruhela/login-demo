@@ -6,7 +6,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import Login from './Login.jsx';
-
 // import { GoogleLogin } from 'react-google-login-component';
 
 const styles = {
@@ -59,11 +58,11 @@ class Home extends Component {
   }
 
   handleGoogleResponse(){
-    this.props.history.push(`/account-overview`);
+    this.props.history.push(`/account-overview?source=google`);
   }
 
   handleFacebookResponse() {
-    this.props.history.push(`/account-overview?option`);
+    this.props.history.push(`/account-overview?source=facebook`);
   }
 
   handleOptionChange(e) {
@@ -89,7 +88,7 @@ class Home extends Component {
           onChange={this.handleUsername}
           value={this.state.username}
           hintText="username"
-          floatingLabelText="Username"/>
+          floatingLabelText="Enter your username"/>
           {/* <RadioButtonGroup onChange={this.handleOptionChange} name="shipSpeed">
             <RadioButton
               value={options.facebook}
@@ -111,16 +110,18 @@ class Home extends Component {
             />
          </RadioButtonGroup> */}
          
-         <div style={{margin:'20px'}}>
+         <div style={{marginTop:'30px'}}>
          <FacebookLogin
+            cssClass="loginBtn loginBtn--facebook"
             appId="121848738575409"
             autoLoad={true}
             fields="name,email,picture"
             onClick={this.handleFacebookLogin}
             callback={this.handleFacebookResponse} />
         </div>
-        <div style={{margin:'20px'}}>
+        <div style={{marginTop:'20px'}}>
           <GoogleLogin
+            className="loginBtn loginBtn--google"
             clientId="306135960012-n2q7oim0cqsniplb01di0m7493t41qp1.apps.googleusercontent.com"
             buttonText="Login with Google"
             onSuccess={this.handleGoogleResponse}
@@ -136,8 +137,11 @@ class Home extends Component {
                         responseHandler={this.handleGoogleResponse}
                         buttonText="Login With Google"/>
         </div> */}
-         <div style={{margin:'20px'}}>
-        <RaisedButton label="Lloyds Login service" onClick={this.onContinueClick} primary={true} style={{margin:'20px'}} />
+         <div style={{marginTop:'20px'}}>
+        <RaisedButton label="Lloyds Login service" onClick={this.onContinueClick} primary={true}/>
+        </div>
+        <div style={{marginTop:'30px' }} className = "register-link" >
+          <Link to='/'>Register to Internet banking ></Link>
         </div>
        
       </div>

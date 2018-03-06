@@ -40,7 +40,7 @@ class ScanQR extends Component {
           hintText="OTP"
           floatingLabelText="One time password"/> */}
           <div>
-            <RaisedButton label="Submit" onClick={this.handleSubmit} primary={true} style={{margin:'20px'}} />
+            <RaisedButton label="Submit" onClick={this.handleSubmit} primary={true} style={{marginTop:'20px', marginBottom:'20px'}} />
           </div>
           <div>
           <Link to="/">Back to Login</Link>

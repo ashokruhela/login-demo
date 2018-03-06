@@ -38,7 +38,7 @@ class Login extends Component {
 
     }
     handleOTPClick() {
-        alert('One time password sent to registered mobile. Click okay to proceed')
+        alert('One time password sent to selected option. Click ok to proceed')
             this.props.history.push(`/enterotp`);
         
     }
@@ -46,8 +46,8 @@ class Login extends Component {
     return (
       <div className='login-lloyds'>
          
-          <div>
-            <RaisedButton label="Use QR code" onClick={this.handleQRClick} primary={true} style={{margin:'20px'}} />
+          <div style={{marginTop:'20px', marginBottom: '20px'}}>
+            <RaisedButton label="Use QR code" onClick={this.handleQRClick} primary={true}/>
           </div>
           <div>
               <p>How would you like to receive OTP</p>
@@ -68,7 +68,7 @@ class Login extends Component {
             style={styles.checkbox}
             />
             </div>
-            <RaisedButton label="Use OTP" onClick={this.handleOTPClick} primary={true} style={{margin:'20px'}} />
+            <RaisedButton label="Use OTP" onClick={this.handleOTPClick} primary={true} style={{marginTop:'20px', marginBottom: '20px'}} />
           </div>
           {/* <div>
           <Link to="/">Forgotten your login detils</Link>
