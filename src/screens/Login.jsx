@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Checkbox from 'material-ui/Checkbox';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+
+const styles = {
+    block: {
+      maxWidth: 250,
+    },
+    checkbox: {
+      marginBottom: 16,
+    },
+  };
 
 class Login extends Component {
     constructor(props) {
@@ -10,7 +22,8 @@ class Login extends Component {
         this.handleOTPClick = this.handleOTPClick.bind(this)
         this.handleTextChange = this.handleTextChange.bind(this)
         this.state = {
-            username: ''
+            username: '',
+            checked:false
           }
     }
 
@@ -32,15 +45,29 @@ class Login extends Component {
   render() {
     return (
       <div className='login-lloyds'>
-        {/* <TextField
-          onChange={this.handleTextChange}
-          value={this.state.username}
-          hintText="username"
-          floatingLabelText="Enter Username"/> */}
+         
           <div>
             <RaisedButton label="Use QR code" onClick={this.handleQRClick} primary={true} style={{margin:'20px'}} />
           </div>
           <div>
+              <p>How would you like to receive OTP</p>
+          <div style={styles.block}>
+            <Checkbox
+            checked="true"
+            checkedIcon={<ActionFavorite />}
+            uncheckedIcon={<ActionFavoriteBorder />}
+            label="Whatsapp"
+            style={styles.checkbox}
+            />
+            <Checkbox
+            label="in email"
+            style={styles.checkbox}
+            />
+            <Checkbox
+            label="Text"
+            style={styles.checkbox}
+            />
+            </div>
             <RaisedButton label="Use OTP" onClick={this.handleOTPClick} primary={true} style={{margin:'20px'}} />
           </div>
           {/* <div>

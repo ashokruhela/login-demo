@@ -43,11 +43,7 @@ class ScanQR extends Component {
             <RaisedButton label="Submit" onClick={this.handleSubmit} primary={true} style={{margin:'20px'}} />
           </div>
           <div>
-          <Link to="/login">Back to Login</Link>
-          </div>
-
-          <div>
-          <Link to="/">Back to Home</Link>
+          <Link to="/">Back to Login</Link>
           </div>
         
       </div>
