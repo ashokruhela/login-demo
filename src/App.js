@@ -6,6 +6,9 @@ import './App.css';
 import Home from './screens/Home.jsx';
 import ChooseLogin from './screens/ChooseLogin.jsx'
 import AccountOverview from './screens/AccountOverview.jsx';
+import Login from './screens/Login.jsx';
+import ScanQR from './screens/QRScreen.jsx';
+import EnterOTP from './screens/EnterOTP.jsx';
 
 class App extends Component {
   render() {
@@ -21,6 +24,9 @@ class App extends Component {
               <Route exact path="/" component={Home}></Route>
               <Route exact path="/choose-auth" component={ChooseLogin}></Route>
               <Route exact path="/account-overview" component={AccountOverview}></Route>
+              <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/scanqr" component={ScanQR}></Route>
+              <Route exact path="/enterotp" component={EnterOTP}></Route>
             </div>
           </Router>
         </div>

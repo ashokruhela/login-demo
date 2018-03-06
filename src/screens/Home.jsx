@@ -5,6 +5,8 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import Login from './Login.jsx';
+
 // import { GoogleLogin } from 'react-google-login-component';
 
 const styles = {
@@ -71,15 +73,13 @@ class Home extends Component {
     
   }
 
-  onContinueClick() {
-    // if(this.state.selectedValue) {
-    //   if(options.facebook === this.state.selectedValue) {
-    //     // implement facebook
-    //   } else {
-    //     this.props.history.push(`/account-overview?option=${this.state.selectedValue}`);
-    //   }
+  onContinueClick(e) {
+    if(this.state.username) {
+      this.props.history.push(`/login`);
       
-    // }
+    } else {
+      alert('Enter username to procced')
+    }
   }
   render() {
     return (
@@ -137,7 +137,7 @@ class Home extends Component {
                         buttonText="Login With Google"/>
         </div> */}
          <div style={{margin:'20px'}}>
-        <RaisedButton label="Traditional login" onClick={this.onContinueClick} primary={true} style={{margin:'20px'}} />
+        <RaisedButton label="Lloyds Login service" onClick={this.onContinueClick} primary={true} style={{margin:'20px'}} />
         </div>
        
       </div>
