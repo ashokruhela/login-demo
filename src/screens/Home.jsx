@@ -141,7 +141,7 @@ class Home extends Component {
         <RaisedButton label="Lloyds Login service" onClick={this.onContinueClick} primary={true}/>
         </div>
         <div style={{marginTop:'30px' }} className = "register-link" >
-          <Link to='/'>Register to Internet banking ></Link>
+          <Link to='/'><Reg></Reg>ister to Internet banking ></Link>
         </div>
        
       </div>
