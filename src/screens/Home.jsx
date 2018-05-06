@@ -32,18 +32,25 @@ class Home extends Component {
     this.handleFacebookResponse = this.handleFacebookResponse.bind(this);
     this.handleGoogleResponse = this.handleGoogleResponse.bind(this);
     this.handleGoogleFailure = this.handleGoogleFailure.bind(this);
+    this.handleFacebookFailure = this.handleFacebookFailure.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.selectedValue = '';
     this.state = {
-      username: ''
+      username: '',
+      errorText: 'username is required'
     }
 
+  }
+  handleFacebookFailure(e) {
+    e.preventDefault();
   }
 
   handleUsername(e){
     this.setState({
-      username: e.target.value
+      username: e.target.value,
+      errorText: e.target.value && e.target.value.length <= 0 ? 'Username is required' : ''
     })
+    
   }
 
   handleGoogleFailure() {
@@ -52,8 +59,9 @@ class Home extends Component {
 
   handleFacebookLogin(e) {
     if(this.state.username === null || this.state.username.length <= 0) {
-      alert('Enter username')
       e.preventDefault();
+      alert('Enter username')
+      
     }
   }
 
@@ -88,6 +96,7 @@ class Home extends Component {
           onChange={this.handleUsername}
           value={this.state.username}
           hintText="username"
+          errorText = {this.state.errorText}
           floatingLabelText="Enter your username"/>
           {/* <RadioButtonGroup onChange={this.handleOptionChange} name="shipSpeed">
             <RadioButton
@@ -114,9 +123,10 @@ class Home extends Component {
          <FacebookLogin
             cssClass="loginBtn loginBtn--facebook"
             appId="121848738575409"
-            autoLoad={true}
+            autoLoad={false}
             fields="name,email,picture"
             onClick={this.handleFacebookLogin}
+            onFailure = {this.handleFacebookFailure}
             callback={this.handleFacebookResponse} />
         </div>
         <div style={{marginTop:'20px'}}>
@@ -139,6 +149,9 @@ class Home extends Component {
         </div> */}
          <div style={{marginTop:'20px'}}>
         <RaisedButton label="Lloyds Login service" onClick={this.onContinueClick} primary={true}/>
+        </div>
+        <div style={{marginTop:'30px' }} className = "register-link" >
+          <Link to='/'>Forgotten your userid ></Link>
         </div>
         <div style={{marginTop:'30px' }} className = "register-link" >
           <Link to='/'>Register to Internet banking ></Link>
